@@ -1,23 +1,23 @@
 {
-        "name": "pokusew/plupload",
-        "type": "library",
-        "description": "Plupload component for Nette Framework.",
-        "keywords": ["echo511", "nette", "plupload"],
-        "license": ["MIT"],
-        "authors": [
-                {
-                        "name": "Nikolas Tsiongas",
-                        "email": "ntsiongas@gmail.com",
-                        "homepage": "http://congi.cz"
-                }
-        ],
-        "require": {
-                "php": ">=5.4.0",
+	"name": "pokusew/plupload",
+	"type": "library",
+	"description": "Plupload component for Nette Framework.",
+	"keywords": ["echo511", "nette", "plupload"],
+	"license": ["MIT"],
+	"authors": [
+		{
+			"name": "Nikolas Tsiongas",
+			"email": "ntsiongas@gmail.com",
+			"homepage": "http://congi.cz"
+		}
+	],
+	"require": {
+		"php": ">=5.4.0",
 		"nette/nette": "2.2.*"
-        },
-        "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-        }
+	},
+	"autoload": {
+		"classmap": [
+			"src/"
+		]
+	}
 }
