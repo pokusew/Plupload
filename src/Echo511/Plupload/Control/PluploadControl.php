@@ -39,7 +39,10 @@ class PluploadControl extends Control
 	public $onUploadComplete = array();
 
 	/** @var string */
-	public $templateFile;
+	public $templateMainFile;
+	
+	/** @var string */
+	public $templateScriptFile;
 
 	/** @var string */
 	private $id;
@@ -65,7 +68,8 @@ class PluploadControl extends Control
 		$this->uploadQueueFactory = $uploadQueueFactory;
 		$this->cacheStorage = $cacheStorage;
 
-		$this->templateFile = __DIR__ . '/../templates/control/plupload.latte';
+		$this->templateMainFile = __DIR__ . '/../templates/control/plupload.latte';
+		$this->templateScriptFile = __DIR__ . '/../templates/control/script.latte';
 		$this->id = Strings::random();
 	}
 
@@ -76,7 +80,20 @@ class PluploadControl extends Control
 	 */
 	public function render()
 	{
-		$this->template->setFile($this->templateFile);
+		$this->template->setFile($this->templateMainFile);
+		$this->template->id = $this->id;
+		$this->template->maxFileSize = $this->maxFileSize;
+		$this->template->maxChunkSize = $this->maxChunkSize;
+		$this->template->allowedExtensions = $this->allowedExtensions;
+		$this->template->render();
+	}
+	
+	/**
+	 * Render component.
+	 */
+	public function renderScript()
+	{
+		$this->template->setFile($this->templateScriptFile);
 		$this->template->id = $this->id;
 		$this->template->maxFileSize = $this->maxFileSize;
 		$this->template->maxChunkSize = $this->maxChunkSize;
